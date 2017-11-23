@@ -75,4 +75,52 @@
   ```
 * Open [http://localhost:3000](http://localhost:3000)
 
-  Should see **Hello World!** text output in the browser  
+  Should see **Hello World!** text output in the browser
+
+* Let's use **express** server instead of node inbuilt **http** module
+  
+  * Need to install **express** with **npm**
+  
+    So first, initialize **npm** in current node project with the command:
+    
+    ```
+    npm init
+    ```
+    Follow the instruction, But if confused just press key **Enter**
+    
+    File named *package.json* is created.
+    
+    Explore [package.json going to this link](https://docs.npmjs.com/files/package.json).
+    
+    Install express with command:
+    
+    ```
+    npm install express --save
+    ```
+    Explore [npm install command going to this link](https://docs.npmjs.com/cli/install).
+    
+    Add `node_module` directory to `.gitignore`.
+   
+  * Create express serve
+    ```
+    const port = 3000;
+    const express = require('express');
+    const app = express();
+    app.get('/', (req, res) => {
+      res.end("Hello World!");
+    });
+    app.listen(port, () => {
+      console.log(`Server running at http://localhost:${port}/`);
+    });
+
+    ```
+* Restart the Server
+   * Stop server with keypress `Ctrl c`
+   * Start again with command `node app.js`
+   
+     OR
+   * Use [nodemon](https://nodemon.io/) or [forever](https://github.com/foreverjs/forever) to restart automatically when code change.
+   
+* Open [http://localhost:3000](http://localhost:3000)
+
+  Should see **Hello World!** text output in the browser

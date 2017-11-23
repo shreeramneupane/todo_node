@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "This project is basic guidelines for a Node.JS beginner.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shreeramneupane/todo_node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shreeramneupane/todo_node/issues"
+  },
+  "homepage": "https://github.com/shreeramneupane/todo_node#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
