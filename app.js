@@ -7,6 +7,8 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
+const mongoose = require('mongoose');
+
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -22,6 +24,20 @@ app.post('/hello', function (req, res) {
   res.end(`Hello ${req.body.name}!`);
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
-});
+connect()
+  .on('error', console.log)
+  .on('disconnected', connect)
+  .once('open', listen);
+
+function listen() {
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
+  });
+}
+
+function connect() {
+  var mongoDB = 'mongodb://localhost/todo_database';
+  return mongoose.connect(mongoDB, {
+    useMongoClient: true
+  });
+}
