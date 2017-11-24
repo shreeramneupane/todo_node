@@ -1,0 +1,15 @@
+extends layout.pug
+
+block body
+  h1 User Detail
+
+  span Name: #{user.name}
+
+  include user_delete_form
+  br
+  a(href='/users/' + user._id + '/edit')
+    button(type='button') Edit
+
+  br
+
+  a(href='/users') Users List

@@ -1,0 +1,12 @@
+extends layout.pug
+
+block body
+  h1 Add new user
+  form(action='/users' method='post' )
+    label(for=name) Name:
+    input#name.form-control(type='text' name='name' required)
+    br
+    button(type='submit') Submit
+
+  br
+  a(href='/users') User List

@@ -1,7 +1,14 @@
-html
-  body
-    h1 Edit User
+extends layout.pug
 
-    form(method="POST" action="/users/" + user._id + "?_method=PUT")
-      input#name.form-control(type='text' name='name' value=user.name)
-      button(type='submit') Edit
+block body
+  h1 Edit User
+
+  form(method="POST" action="/users/" + user._id + "?_method=PUT")
+    input#name.form-control(type='text' name='name' value=user.name required)
+    br
+    button(type='submit') Edit
+
+  br
+  a(href='/users/' + user._id) User Detail
+  br
+  a(href='/users') Users List

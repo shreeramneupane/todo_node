@@ -1,19 +1,23 @@
-html
-  body
-    h1 List of users
+extends layout.pug
 
-    table(border=1)
-      th SN
-      th name
-      th delete
-      th edit
-      for user, index in users
-        tr
-          td= index + 1
-          td= user.name
-          td
-            form(method="POST" action="/users/" + user._id + "?_method=DELETE")
-              button(type="submit" onclick='return confirm("Are you sure you want to delete? (Cannot be undone)")') Delete
-          td
-            a(href='/users/' + user._id + '/edit')
-              button(type='button') Edit
+block body
+  h1 List of users
+
+  a(href='/users/new') Add user
+  br
+
+  table(border=1)
+    th SN
+    th name
+    th delete
+    th edit
+    for user, index in users
+      tr
+        td= index + 1
+        td
+          a(href='/users/' + user._id) #{user.name}
+        td
+          include user_delete_form
+        td
+          a(href='/users/' + user._id + '/edit')
+            button(type='button') Edit

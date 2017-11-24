@@ -21,20 +21,22 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
 app.get('/', (req, res) => {
-  res.end("Hello World!");
+  res.redirect('/users');
 });
 
-app.get('/hello_form', function (req, res) {
-  res.render("hello_form");
+// Render user create form
+app.get('/users/new', function (req, res) {
+  res.render("user_new_form");
 });
 
-app.post('/hello', function (req, res) {
+// Create user
+app.post('/users', function (req, res) {
   const name = req.body.name;
   const user = new User({name: name});
 
   user.save()
-    .then((data) => {
-      res.end(`Hello ${data.name}, we have saved you.`);
+    .then((savedUser) => {
+      res.redirect(`/users/${savedUser._id}`)
     })
     .catch((err) => {
       res.statusCode = 400;
@@ -42,6 +44,7 @@ app.post('/hello', function (req, res) {
     });
 });
 
+// List users
 app.get('/users', (req, res) => {
   User.find({})
     .select('name')
@@ -54,6 +57,21 @@ app.get('/users', (req, res) => {
     });
 });
 
+// Show user detail
+app.get('/users/:userId', (req, res) => {
+  const query = {_id: req.params.userId};
+  User.findOne(query)
+    .select('name')
+    .then(user => {
+      res.render("user", {user: user});
+    })
+    .catch((err) => {
+      res.statusCode = 400;
+      res.end(err.message);
+    });
+});
+
+// Delete a  user
 app.delete('/users/:userId', (req, res) => {
   const userId = req.params.userId;
   User.remove({_id: userId})
@@ -66,13 +84,14 @@ app.delete('/users/:userId', (req, res) => {
     });
 });
 
+// Update a user
 app.put('/users/:userId', (req, res) => {
-  const query = {_id: req.params.userId};
+  const userId = req.params.userId;
+  const query = {_id: userId};
   const data = req.body;
-  console.log(data);
   User.update(query, {$set: data})
     .then(() => {
-      res.redirect('/users');
+      res.redirect(`/users/${userId}`);
     })
     .catch((err) => {
       res.statusCode = 400;
@@ -80,6 +99,7 @@ app.put('/users/:userId', (req, res) => {
     });
 });
 
+// Render user edit form
 app.get('/users/:userId/edit', (req, res) => {
   const query = {_id: req.params.userId};
   User.findOne(query)
