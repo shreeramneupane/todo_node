@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/hello_form', function (req, res) {
-  // res.sendFile(path.join(__dirname + '/views/hello_form.html'));
   res.render("hello_form");
 });
 
