@@ -7,4 +7,8 @@
   * install *mongoose* module
   * use *mongoose* module **connect** to establish connection with MongoDB database
     
-    `todo_development` is the MongoDB database, It can be accessed with `mongodb://localhost/todo_development`  
+    `todo_development` is the MongoDB database, It can be accessed with `mongodb://localhost/todo_development`
+
+* Let's save user's name in database in collection **users**
+  
+  * create a users schema
