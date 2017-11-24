@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
+app.use('/', require('./routes/user.routes'));
+
 app.get('/', (req, res) => {
   res.redirect('/users');
 });
