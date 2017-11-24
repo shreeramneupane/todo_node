@@ -14,12 +14,16 @@ const User = require('./models/users');
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+
 app.get('/', (req, res) => {
   res.end("Hello World!");
 });
 
 app.get('/hello_form', function (req, res) {
-  res.sendFile(path.join(__dirname + '/views/hello_form.html'));
+  // res.sendFile(path.join(__dirname + '/views/hello_form.html'));
+  res.render("hello_form");
 });
 
 app.post('/hello', function (req, res) {
