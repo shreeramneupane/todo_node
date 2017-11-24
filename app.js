@@ -43,8 +43,7 @@ app.get('/users', (req, res) => {
   User.find({})
     .select('name')
     .then(users => {
-      //Need to use send method to respond with JSON
-      res.send(users);
+      res.render("users", {users: users});
     })
     .catch((err) => {
       res.statusCode = 400;

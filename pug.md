@@ -9,3 +9,5 @@
   app.set("views", path.join(__dirname, "views"));
   ```
 * create *hello_form.pug* that render same as *hello_form.html*
+
+* create *users.pug* to show the list of users in a table

@@ -1,0 +1,11 @@
+html
+  body
+    h1 List of users
+
+    table(border=1)
+      th SN
+      th name
+      for user, index in users
+        tr
+          td= index + 1
+          td= user.name
