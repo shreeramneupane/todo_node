@@ -24,3 +24,6 @@
       overrides request method with the new method that is sent over the params with name **_method**
     * form should post action to */users/:userId?_method=DELETE*
   * show confirmation popup
+
+* add a column to users list table which has link to render user's edit form
+  * create *user_edit_form.pug* which should be rendered while sending get request to */user/:userId/edit*

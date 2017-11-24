@@ -80,6 +80,18 @@ app.put('/users/:userId', (req, res) => {
     });
 });
 
+app.get('/users/:userId/edit', (req, res) => {
+  const query = {_id: req.params.userId};
+  User.findOne(query)
+    .then((user) => {
+      res.render('user_edit_form', {user: user});
+    })
+    .catch((err) => {
+      res.statusCode = 400;
+      res.end(err.message);
+    });
+});
+
 connect()
   .on('error', console.log)
   .on('disconnected', connect)
