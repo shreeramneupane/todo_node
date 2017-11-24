@@ -22,7 +22,7 @@
       })
       .catch((err) => {
         res.statusCode = 400;
-        res.end(err.message);
+        res.send({error: {message: err.message}});
       });
   });
   
@@ -33,4 +33,33 @@
   ![User List](images/users_list.png)
   
   Response header has **Content-Type:application/json**
+  
+* Install [curl](https://github.com/curl/curl), which can be use as HTTP client
+
+* ```
+  curl -X GET http://localhost:3000/api/users
+  ```
+  This command provides us the list of users.
+
+* Create `/users` post routes to create new users
+  ```
+  app.post('/', function (req, res) {
+    const name = req.body.name;
+    const user = new User({name: name});
+  
+    user.save()
+      .then((savedUser) => {
+        res.send(savedUser)
+      })
+      .catch((err) => {
+        res.statusCode = 400;
+        res.send({error: {message: err.message}});
+      });
+  });
+  ```
+  
+  curl command:
+  ```
+  curl -X POST http://localhost:3000/api/users -d "name=Shyam Kumar"
+  ```
   
