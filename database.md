@@ -23,4 +23,7 @@
   > use pug template engine to render user list
 
 * Delete a user
-  * create a delete route, */users/:usedId*
+  * create a delete route, */users/:userId*
+  
+* Update user
+  * create a put route, */users/:userId*

@@ -66,6 +66,20 @@ app.delete('/users/:userId', (req, res) => {
     });
 });
 
+app.put('/users/:userId', (req, res) => {
+  const query = {_id: req.params.userId};
+  const data = req.body;
+  console.log(data);
+  User.update(query, {$set: data})
+    .then(() => {
+      res.redirect('/users');
+    })
+    .catch((err) => {
+      res.statusCode = 400;
+      res.end(err.message);
+    });
+});
+
 connect()
   .on('error', console.log)
   .on('disconnected', connect)
