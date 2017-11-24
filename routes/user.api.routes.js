@@ -32,4 +32,22 @@ app.post('/', function (req, res) {
     });
 });
 
+// Update user
+app.put('/:userId', function (req, res) {
+  const userId = req.params.userId;
+  const query = {_id: userId};
+  const data = req.body;
+  User.update(query, {$set: data})
+    .then(() => {
+      return User.findOne(query)
+        .then((user) => {
+          res.send(user);
+        })
+    })
+    .catch((err) => {
+      res.statusCode = 400;
+      res.send({error: {message: err.message}});
+    });
+});
+
 module.exports = app;

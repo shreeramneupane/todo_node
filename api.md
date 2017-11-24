@@ -41,7 +41,7 @@
   ```
   This command provides us the list of users.
 
-* Create `/users` post routes to create new users
+* Create `/api/users` post route to create a new user
   ```
   app.post('/', function (req, res) {
     const name = req.body.name;
@@ -62,4 +62,29 @@
   ```
   curl -X POST http://localhost:3000/api/users -d "name=Shyam Kumar"
   ```
+  
+* Update `/api/users/:userId` put route to update a user
+  ```
+  app.put('/:userId', function (req, res) {
+    const userId = req.params.userId;
+    const query = {_id: userId};
+    const data = req.body;
+    User.update(query, {$set: data})
+      .then(() => {
+        return User.findOne(query)
+          .then((user) => {
+            res.send(user);
+          })
+      })
+      .catch((err) => {
+        res.statusCode = 400;
+        res.send({error: {message: err.message}});
+      });
+  });
+  ```
+  
+  curl command:
+  ```
+  curl -X PUT http://localhost:3000/api/users/5a183efa2c402078e89586e6 -d "name=Shyam"
+  ```  
   
