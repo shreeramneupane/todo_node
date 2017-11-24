@@ -17,4 +17,6 @@
     * inside the route, create new object of **User** model with user's name
     * save the object
     * if errors occurs, send response with **Bad Request** status and error message
-    
+
+* List all the users
+  * create a get route, */users*, send JSON response

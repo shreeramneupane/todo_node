@@ -36,6 +36,19 @@ app.post('/hello', function (req, res) {
     });
 });
 
+app.get('/users', (req, res) => {
+  User.find({})
+    .select('name')
+    .then(users => {
+      //Need to use send method to respond with JSON
+      res.send(users);
+    })
+    .catch((err) => {
+      res.statusCode = 400;
+      res.end(err.message);
+    });
+});
+
 connect()
   .on('error', console.log)
   .on('disconnected', connect)
