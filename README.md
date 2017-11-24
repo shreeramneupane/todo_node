@@ -23,5 +23,17 @@ This project is basic guidelines for a Node.JS beginner.
 6. API development
 
 ## Git branching
-* Final app is be on master branch
-* For each task, branch name with pattern **DEV-_Task Number_**, like **DEV-1** 
+* Final app is in master branch
+* For each task, branch name with pattern **DEV-_Task Number_**, like **DEV-1**
+
+## Using Markdown files
+* [mongodb.md](mongodb.md) to understand [DEV-1](https://github.com/shreeramneupane/todo_node/tree/DEV-1)
+* [node_setup.md](mongodb.md) to understand [DEV-2](https://github.com/shreeramneupane/todo_node/tree/DEV-2)
+* [routing.md](mongodb.md) to understand [DEV-3](https://github.com/shreeramneupane/todo_node/tree/DEV-3)
+* [DEV-4](https://github.com/shreeramneupane/todo_node/tree/DEV-4) covers:
+  * CRUD operation
+  * templating with [pug](https://www.npmjs.com/package/pug)
+  
+  so, understand both [database.md](database.md) and [pug.md](pug.md)
+
+* It's time to refactor code, so read [refactor.md](refactor.md)
