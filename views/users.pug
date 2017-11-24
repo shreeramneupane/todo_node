@@ -5,7 +5,11 @@ html
     table(border=1)
       th SN
       th name
+      th delete
       for user, index in users
         tr
           td= index + 1
           td= user.name
+          td
+            form(method="POST" action="/users/" + user._id + "?_method=DELETE")
+              button(type="submit" onclick='return confirm("Are you sure you want to delete? (Cannot be undone)")') Delete
