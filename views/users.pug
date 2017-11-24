@@ -1,23 +1,28 @@
 extends layout.pug
 
 block body
-  h1 List of users
+  div.row
+    div.col-sm-12
+      h1 List of users
 
-  a(href='/users/new') Add user
-  br
+  div.row
+    div.col-sm-12
+      a(href='/users/new') Add user
 
-  table(border=1)
-    th SN
-    th name
-    th delete
-    th edit
-    for user, index in users
-      tr
-        td= index + 1
-        td
-          a(href='/users/' + user._id) #{user.name}
-        td
-          include user_delete_form
-        td
-          a(href='/users/' + user._id + '/edit')
-            button(type='button') Edit
+  div.row
+    div.col-sm-12
+      table.table
+        th SN
+        th Name
+        th Delete
+        th Edit
+        for user, index in users
+          tr
+            td= index + 1
+            td
+              a(href='/users/' + user._id) #{user.name}
+            td
+              include user_delete_form
+            td
+              a(href='/users/' + user._id + '/edit')
+                button(type='button').btn.text-muted Edit

@@ -1,2 +1,4 @@
-form(method="POST" action="/users/" + user._id + "?_method=DELETE")
-  button(type="submit" onclick='return confirm("Are you sure you want to delete? (Cannot be undone)")') Delete
+div.row
+  div.col-sm-12
+    form(method="POST" action="/users/" + user._id + "?_method=DELETE")
+      button(type="submit" onclick='return confirm("Are you sure you want to delete? (Cannot be undone)")').btn.btn-danger Delete

@@ -1,15 +1,26 @@
 extends layout.pug
 
 block body
-  h1 User Detail
 
-  span Name: #{user.name}
+  div.row
+    div.col-sm-12
+      h1 User Detail
 
-  include user_delete_form
-  br
-  a(href='/users/' + user._id + '/edit')
-    button(type='button') Edit
+  div.row
+    div.col-sm-12
+      a(href='/users') Users List
 
-  br
+  div.container
+    div.well.row
+      div.col-sm-4 Name:
+      div.col-sm-8 #{user.name}
 
-  a(href='/users') Users List
+  div.row
+    div.col-sm-12
+      div.pull-left
+        include user_delete_form
+      div.pull-right
+        div.row
+          div.col-sm-12
+            a(href='/users/' + user._id + '/edit')
+              button(type='button').btn.text-muted Edit
