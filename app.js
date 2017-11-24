@@ -51,6 +51,18 @@ app.get('/users', (req, res) => {
     });
 });
 
+app.delete('/users/:userId', (req, res) => {
+  const userId = req.params.userId;
+  User.remove({_id: userId})
+    .then(() => {
+      res.redirect('/users');
+    })
+    .catch((err) => {
+      res.statusCode = 400;
+      res.end(err.message);
+    });
+});
+
 connect()
   .on('error', console.log)
   .on('disconnected', connect)

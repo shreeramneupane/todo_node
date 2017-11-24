@@ -21,3 +21,6 @@
 * List all the users
   * create a get route, */users*, send JSON response
   > use pug template engine to render user list
+
+* Delete a user
+  * create a delete route, */users/:usedId*
