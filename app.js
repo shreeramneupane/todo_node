@@ -19,6 +19,7 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
 app.use('/', require('./routes/user.routes'));
+app.use('/api/users', require('./routes/user.api.routes'));
 
 app.get('/', (req, res) => {
   res.redirect('/users');
