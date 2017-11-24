@@ -28,8 +28,8 @@ This project is basic guidelines for a Node.JS beginner.
 
 ## Using Markdown files
 * [mongodb.md](mongodb.md) to understand [DEV-1](https://github.com/shreeramneupane/todo_node/tree/DEV-1)
-* [node_setup.md](mongodb.md) to understand [DEV-2](https://github.com/shreeramneupane/todo_node/tree/DEV-2)
-* [routing.md](mongodb.md) to understand [DEV-3](https://github.com/shreeramneupane/todo_node/tree/DEV-3)
+* [node_setup.md](node_setup.md) to understand [DEV-2](https://github.com/shreeramneupane/todo_node/tree/DEV-2)
+* [routing.md](routing.md) to understand [DEV-3](https://github.com/shreeramneupane/todo_node/tree/DEV-3)
 * [DEV-4](https://github.com/shreeramneupane/todo_node/tree/DEV-4) covers:
   * CRUD operation
   * templating with [pug](https://www.npmjs.com/package/pug)
@@ -37,3 +37,9 @@ This project is basic guidelines for a Node.JS beginner.
   so, understand both [database.md](database.md) and [pug.md](pug.md)
 
 * It's time to refactor code, so read [refactor.md](refactor.md)
+
+* [bootstrap.md](bootstrap.md) to understand [DEV-5](https://github.com/shreeramneupane/todo_node/tree/DEV-5)
+
+* Go to [refactor.md](refactor.md#refactor-before-adding-api-routes), More refactor as need api too
+
+* [api.md](api.md) to understand [DEV-6](https://github.com/shreeramneupane/todo_node/tree/DEV-6)

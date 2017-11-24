@@ -14,3 +14,5 @@
 * on user detail page, add link to user list page
 * create *user_delete_form.pug*, which has user delete button and include it where user delete button is required
 * create **layout.pug** with basic HTML page layout and extend it in each page
+
+## Refactor before adding API routes
