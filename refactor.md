@@ -37,3 +37,9 @@
 * open routes, [http://localhost:3000/new_routes](http://localhost:3000/new_routes)
 
   Browser render **New Route**
+
+* Copy and paste all the users related route to **user.routes.js**
+
+  Also don't forget to require user model in it.
+   
+  `const User = require('../models/users');`
