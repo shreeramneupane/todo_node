@@ -86,5 +86,25 @@
   curl command:
   ```
   curl -X PUT http://localhost:3000/api/users/5a183efa2c402078e89586e6 -d "name=Shyam"
+  ```
+* Delete `/api/users/:userId` delete route to delete a user
+  ```
+  app.delete('/:userId', function (req, res) {
+    const userId = req.params.userId;
+    const query = {_id: userId};
+    User.remove(query)
+      .then(() => {
+        res.send({message: 'User deleted successfully.'})
+      })
+      .catch((err) => {
+        res.statusCode = 400;
+        res.send({error: {message: err.message}});
+      });
+  });
+  ```
+  
+  curl command:
+  ```
+  curl -X DELETE http://localhost:3000/api/users/5a183efa2c402078e89586e6
   ```  
   

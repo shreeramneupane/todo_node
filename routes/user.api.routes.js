@@ -50,4 +50,18 @@ app.put('/:userId', function (req, res) {
     });
 });
 
+// Delete user
+app.delete('/:userId', function (req, res) {
+  const userId = req.params.userId;
+  const query = {_id: userId};
+  User.remove(query)
+    .then(() => {
+      res.send({message: 'User deleted successfully.'})
+    })
+    .catch((err) => {
+      res.statusCode = 400;
+      res.send({error: {message: err.message}});
+    });
+});
+
 module.exports = app;
